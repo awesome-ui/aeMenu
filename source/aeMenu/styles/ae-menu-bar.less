@@ -1,0 +1,35 @@
+@import (reference) "./mixins/menu.less";
+
+.ae-menu-bar {
+    .mix--ae-menu-bar();
+
+    & > li {
+        .mix--ae-menu-bar__item();
+
+        & > a,
+        & > label {
+            .mix--ae-menu-bar__item__link();
+        }
+
+        &:hover {
+            .mix--ae-menu-bar__item_hover();
+            & > a,
+            & > label {
+                .mix--ae-menu-bar__item__link_hover();
+            }
+        }
+    }
+}
+
+.ae-menu-bar__item-container {
+    .mix--ae-menu-bar__item-container();
+    & > .ae-menu {
+        .mix--ae-menu-bar__item-container__ae-menu();
+    }
+    &:hover {
+        .mix--ae-menu-bar__item-container_hover();
+        & > .ae-menu {
+            .mix--ae-menu-bar__item-container_hover__ae-menu();
+        }
+    }
+}
