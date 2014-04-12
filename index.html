@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='app'>
 <head>
 
     <link rel="stylesheet" href="release/styles/ae-menu.css">
@@ -16,6 +16,57 @@
             font-family: 'segoe ui', 'ubuntu', 'helvetica neue', sans-serif;
         }
     </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js"></script>
+    <script>
+
+        angular.module('app', [])
+
+            .controller('Example1Ctrl', function ($scope) {
+                $scope.items= [
+                    { title: 'Menu Item 1' },
+                    { title: 'Menu Item 2' },
+                    { title: 'Menu Item 3', items: [
+                        { title: 'Menu Item 3.1' },
+                        { title: 'Menu Item 3.2' }
+                    ]}
+                ]
+            })
+
+            .directive('aeMenu', function () { return {
+                restrict: 'A',
+                template: ''+
+                    '<li ae-menu-item ng-repeat="item in items" ng-class="{\'ae-menu__item-container\':item.items}"></li>'+
+                '',
+                scope: {
+                    items: '=menuItems'
+                },
+                controller: function ($scope) {
+
+                },
+                link: function ($scope, $e, $a) {
+                    console.log('link aeMenu')
+                }
+            }})
+
+            .directive('aeMenuItem', function ($compile) { return {
+                require: '^aeMenu',
+                restrict: 'A',
+                template: ''+
+                    '<label>{{item.title}}</label>'+
+                '',
+                link: function ($scope, $e, $a) {
+                    console.log('link aeMenuItem', $scope.item)
+                    if ($scope.item.items) {
+                        $e.append(
+                            $compile('<menu class="ae-menu" ae-menu menu-items="item.items"></menu>')($scope)
+                        )
+                    }
+                }
+            }})
+        ;
+
+    </script>
 
 </head><body>
 
@@ -68,6 +119,12 @@
             </menu>
         </li>
     </menu>
+
+    <hr/>
+
+    <div ng-controller='Example1Ctrl'>
+        <menu class="ae-menu" ae-menu menu-items='items'></menu>
+    </div>
 
 </body>
 </html>
