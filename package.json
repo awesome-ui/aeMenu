@@ -1,5 +1,10 @@
 {
-    "name": "aeMenu", "version": "0.0.0",
+    "name": "aeMenu", "version": "0.0.1",
+
+    "devDependencies": {
+        "gulp": "latest",
+        "gilp-less": "latest"
+    },
 
     "license": "MIT"
 }
