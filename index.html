@@ -29,14 +29,16 @@
                     { title: 'Menu Item 3', items: [
                         { title: 'Menu Item 3.1' },
                         { title: 'Menu Item 3.2' }
-                    ]}
+                    ]},
+                    { type: 'separator' },
+                    { title: 'Menu Item 4' }
                 ]
             })
 
             .directive('aeMenu', function () { return {
                 restrict: 'A',
                 template: ''+
-                    '<li ae-menu-item ng-repeat="item in items" ng-class="{\'ae-menu__item-container\':item.items}"></li>'+
+                    '<li ae-menu-item ng-repeat="item in items" ng-class="$class"></li>'+
                 '',
                 scope: {
                     items: '=menuItems'
@@ -57,7 +59,13 @@
                 '',
                 link: function ($scope, $e, $a) {
                     console.log('link aeMenuItem', $scope.item)
+                    $scope.$class= {}
+                    if (!$scope.item.title) {
+                        $scope.$class['ae-menu__item-separator']= true
+                        $e.html('')
+                    }
                     if ($scope.item.items) {
+                        $scope.$class['ae-menu__item-container']= true
                         $e.append(
                             $compile('<menu class="ae-menu" ae-menu menu-items="item.items"></menu>')($scope)
                         )
