@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="release/styles/ae-menu.css">
+    <link rel="stylesheet" href="release/styles/ae-menu-bar.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        :before, :after; {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'segoe ui', 'ubuntu', 'helvetica neue', sans-serif;
+        }
+    </style>
+
+</head><body>
+
+    <menu class="ae-menu-bar">
+        <li><label>Item 1</label></li>
+        <li><label>Item 2</label></li>
+        <li class="ae-menu-bar__item-container"><label>Item 3</label>
+            <menu class="ae-menu">
+                <li><a>Menu Item 3.1</a></li>
+                <li class="ae-menu__item-container"><label>Menu Item 3.2</label>
+                    <menu class="ae-menu">
+                        <li><a>Menu Item 3.2.1</a></li>
+                        <li><a>Menu Item 3.2.2</a></li>
+                        <li class="ae-menu__item-container"><label>Menu Item 3.2.3</label>
+                            <menu class="ae-menu">
+                                <li><a>Menu Item 3.2.3.1</a></li>
+                                <li><a>Menu Item 3.2.3.2</a></li>
+                                <li><a>Menu Item 3.2.3.3</a></li>
+                            </menu>
+                        </li>
+                    </menu>
+                </li>
+                <li class="ae-menu__item-container"><label>Menu Item 3.3</label>
+                    <menu class="ae-menu">
+                        <li><a>Menu Item 3.3.1</a></li>
+                        <li><a>Menu Item 3.3.2</a></li>
+                        <li class="ae-menu__item-container"><label>Menu Item 3.3.3</label>
+                            <menu class="ae-menu">
+                                <li><a>Menu Item 3.3.3.1</a></li>
+                                <li><a>Menu Item 3.3.3.2</a></li>
+                                <li><a>Menu Item 3.3.3.3</a></li>
+                            </menu>
+                        </li>
+                    </menu>
+                </li>
+                <li class="ae-menu__item-separator"></li>
+                <li class="ae-menu__item-container"><label>Menu Item 3.4</label>
+                    <menu class="ae-menu">
+                        <li><a>Menu Item 3.4.1</a></li>
+                        <li><a>Menu Item 3.4.2</a></li>
+                        <li class="ae-menu__item-container"><label>Menu Item 3.4.3</label>
+                            <menu class="ae-menu">
+                                <li><a>Menu Item 3.4.3.1</a></li>
+                                <li><a>Menu Item 3.4.3.2</a></li>
+                                <li><a>Menu Item 3.4.3.3</a></li>
+                            </menu>
+                        </li>
+                    </menu>
+                </li>
+            </menu>
+        </li>
+    </menu>
+
+</body>
+</html>
