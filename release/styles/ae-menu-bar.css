@@ -1,0 +1,47 @@
+.ae-menu-bar {
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background: #e2e2e2;
+}
+.ae-menu-bar:after {
+  display: block;
+  content: '';
+  float: none;
+  clear: both;
+}
+.ae-menu-bar > li {
+  display: block;
+  position: relative;
+  cursor: default;
+  float: left;
+}
+.ae-menu-bar > li > a,
+.ae-menu-bar > li > label {
+  display: block;
+  padding: 4px 55px 6px 25px;
+  line-height: 20px;
+  white-space: nowrap;
+  padding: 4px 15px 6px;
+}
+.ae-menu-bar > li:hover {
+  background: #777;
+}
+.ae-menu-bar > li:hover > a,
+.ae-menu-bar > li:hover > label {
+  color: #e2e2e2;
+}
+.ae-menu-bar__item-container:after {
+  display: none;
+}
+.ae-menu-bar__item-container > .ae-menu {
+  display: none;
+  top: -6px;
+  left: 100%;
+  top: 100%;
+  left: 0;
+}
+.ae-menu-bar__item-container:hover > .ae-menu {
+  display: block;
+}
