@@ -30,6 +30,7 @@
   color: #e2e2e2;
 }
 .ae-menu__item-separator {
+  height: 0;
   margin: 5px 0;
   padding: 0;
   border-top: 1px solid #c2c2c2;
