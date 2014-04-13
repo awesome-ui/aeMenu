@@ -18,21 +18,22 @@
             }
         }
     }
-}
 
-.ae-menu__item-separator {
-    .mix--ae-menu__item-separator();
-}
-
-.ae-menu__item-container {
-    .mix--ae-menu__item-container();
-    & > .ae-menu {
-        .mix--ae-menu__item-container__ae-menu();
+    &__item-separator {
+        .mix--ae-menu__item-separator();
     }
-    &:hover {
-        .mix--ae-menu__item-container_hover();
-        & > .ae-menu {
-            .mix--ae-menu__item-container_hover__ae-menu();
+
+    &__item-container {
+        .mix--ae-menu__item-container();
+        &:hover {
+            .mix--ae-menu__item-container_hover();
         }
     }
+    &__item-container > & {
+        .mix--ae-menu__item-container__ae-menu();
+    }
+    &__item-container:hover > & {
+        .mix--ae-menu__item-container_hover__ae-menu();
+    }
+
 }
