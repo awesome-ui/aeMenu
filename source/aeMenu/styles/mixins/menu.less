@@ -1,4 +1,12 @@
+.mix--user-select(@select) {
+    -webkit-user-select: @select;
+       -moz-user-select: @select;
+        -ms-user-select: @select;
+            user-select: @select;
+}
+
 .mix--ae-menu() {
+    .mix--user-select(none);
     display: block;
     position: absolute; z-index: 1;
     margin: 0; padding: 5px;
@@ -72,6 +80,7 @@
 
 
 .mix--ae-menu-bar() {
+    .mix--user-select(none);
     display: block;
     position: relative;
     margin: 0; padding: 0;
