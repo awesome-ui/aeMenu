@@ -2,8 +2,7 @@
     "name": "aeMenu", "version": "0.0.5",
 
     "dependencies": {
-        "angular": "latest",
-        "angular-i18n": "latest"
+        "angular": "latest"
     },
 
     "license": "MIT"
