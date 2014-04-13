@@ -34,6 +34,15 @@
                     { type: 'separator' },
                     { title: 'Menu Item 4' }
                 ]
+                $scope.config= {
+                    classes: {
+                        menu: 'ae-menu b-menu',
+                        menuItem: 'ae-menu__item b-menu__item',
+                        menuItemLink: 'ae-menu__item__link b-menu__item__link',
+                        menuItemSeparator: 'ae-menu__item-separator b-menu__item-separator',
+                        menuItemContainer: 'ae-menu__item-container b-menu__item-container',
+                    }
+                }
             })
 
         ;
@@ -97,7 +106,7 @@
     <hr/>
 
     <div ng-controller='Example1Ctrl'>
-        <menu class="ae-menu custom-menu" ae-menu menu-items='items'></menu>
+        <menu class="custom-menu" ae-menu menu-items='items' menu-config='config'></menu>
     </div>
 
 </body>

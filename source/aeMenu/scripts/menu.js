@@ -2,42 +2,63 @@
 
     angular.module('aeMenu', [])
 
-        .directive('aeMenu', function () { return {
+        .value('aeMenuConfig', {
+            classes: {
+                menu: 'ae-menu',
+                menuItem: undefined,
+                menuItemLink: undefined,
+                menuItemContainer: 'ae-menu__item-container',
+                menuItemSeparator: 'ae-menu__item-separator',
+            }
+        })
+
+        .directive('aeMenu', function (aeMenuConfig) { return {
             restrict: 'A',
             template: ''+
-                '<li ae-menu-item ng-repeat="item in items" ng-class="$class"></li>'+
+                '<li ae-menu-item ng-repeat="item in items"></li>'+
             '',
             scope: {
-                items: '=menuItems'
+                items: '=menuItems',
+                config: '=?menuConfig'
             },
             controller: function ($scope) {
             },
             link: function ($scope, $e, $a) {
-                $scope.menuClass= $a.class
+                $scope.$config= angular.extend({}, aeMenuConfig, $scope.config || {})
+                if ($scope.config) {
+                    if ($scope.config.classes) {
+                        $scope.$config.classes= angular.extend({}, aeMenuConfig.classes, $scope.config.classes || {} )
+                    }
+                }
+                if ($scope.$config.classes.menu) {
+                    $a.$addClass($scope.$config.classes.menu)
+                }
+                $scope.$config.classes.menu= [$scope.$config.classes.menu, $a.class].join(' ')
             }
         }})
 
         .directive('aeMenuItem', function ($compile) { return {
             require: '^aeMenu',
             restrict: 'A',
-            template: ''+
-                '<label>{{item.title}}</label>'+
-            '',
             link: function ($scope, $e, $a) {
-                $scope.$class= {}
-                if (!$scope.item.title) {
-                    $scope.$class['ae-menu__item-separator']= true
-                    $e.html('')
-                }
-                if ($scope.item.items) {
-                    $scope.$class['ae-menu__item-container']= true
-                    $e.append(
-                        $compile('<menu class="ae-menu" ae-menu menu-items="item.items"></menu>')($scope)
-                        .addClass(
-                            $scope.menuClass
+                $scope.$watchCollection('item', function (item) {
+                    $e.html('').attr('class', $scope.$config.classes.menuItem)
+                    if (!$scope.item.title) {
+                        $a.$addClass($scope.$config.classes.menuItemSeparator)
+                    } else {
+                        $e.append(
+                            $compile('<label>{{item.title}}</label>')($scope).addClass(
+                                $scope.$config.classes.menuItemLink
+                            )
                         )
-                    )
-                }
+                        if ($scope.item.items) {
+                            $a.$addClass($scope.$config.classes.menuItemContainer)
+                            $e.append(
+                                $compile('<menu ae-menu menu-items="item.items" menu-config="$config"></menu>')($scope)
+                            )
+                        }
+                    }
+                })
             }
         }})
 
