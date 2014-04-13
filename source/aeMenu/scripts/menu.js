@@ -11,7 +11,9 @@
                 items: '=menuItems'
             },
             controller: function ($scope) {
-
+            },
+            link: function ($scope, $e, $a) {
+                $scope.menuClass= $a.class
             }
         }})
 
@@ -31,6 +33,9 @@
                     $scope.$class['ae-menu__item-container']= true
                     $e.append(
                         $compile('<menu class="ae-menu" ae-menu menu-items="item.items"></menu>')($scope)
+                        .addClass(
+                            $scope.menuClass
+                        )
                     )
                 }
             }
