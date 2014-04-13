@@ -2,7 +2,11 @@
     "name": "aeMenu", "version": "0.0.5",
 
     "devDependencies": {
+        "bower": "latest",
         "gulp": "latest",
+        "gulp-ngmin": "latest",
+        "gulp-uglify": "latest",
+        "gulp-rename": "latest",
         "gilp-less": "latest"
     },
 
