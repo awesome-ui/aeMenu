@@ -36,6 +36,12 @@
   border-top: 1px solid #c2c2c2;
   border-bottom: 1px solid #f2f2f2;
 }
+.ae-menu__item-separator:first-child {
+  margin-top: 0;
+}
+.ae-menu__item-separator:last-child {
+  margin-bottom: 0;
+}
 .ae-menu__item-container:after {
   display: block;
   content: '';
