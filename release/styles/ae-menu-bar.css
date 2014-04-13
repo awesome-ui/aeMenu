@@ -1,4 +1,8 @@
 .ae-menu-bar {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   display: block;
   position: relative;
   margin: 0;

@@ -1,4 +1,8 @@
 .ae-menu {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   display: block;
   position: absolute;
   z-index: 1;
@@ -54,13 +58,13 @@
   border-width: 4px 0 4px 4px;
   border-color: transparent transparent transparent #333;
 }
+.ae-menu__item-container:hover:after {
+  border-color: transparent transparent transparent #e2e2e2;
+}
 .ae-menu__item-container > .ae-menu {
   display: none;
   top: -6px;
   left: 100%;
-}
-.ae-menu__item-container:hover:after {
-  border-color: transparent transparent transparent #e2e2e2;
 }
 .ae-menu__item-container:hover > .ae-menu {
   display: block;
