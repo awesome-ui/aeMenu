@@ -7,7 +7,7 @@
         "gulp-ngmin": "latest",
         "gulp-uglify": "latest",
         "gulp-rename": "latest",
-        "gilp-less": "latest"
+        "gulp-less": "latest"
     },
 
     "license": "MIT"
